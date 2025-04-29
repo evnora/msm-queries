@@ -1,10 +1,10 @@
 class DirectorsController < ApplicationController
-  def index
+  def list
     @list_of_directors = Director.all
-    render({ :template => "directors/index" })
+    render({ :template => "director_templates/list" })
   end
 
-  def show
+  def details
     the_id = params.fetch("the_id")
     matching_directors = Director.where({ :id => the_id })
     @the_director = matching_directors.at(0)
@@ -12,6 +12,6 @@ class DirectorsController < ApplicationController
     matching_movies = Movie.where({ :director_id => @the_director.id })
     @list_of_movies = matching_movies
 
-    render({ :template => "directors/show" })
+    render({ :template => "director_templates/details" })
   end
 end
