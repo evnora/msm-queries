@@ -1,0 +1,13 @@
+ <h1>Movie Details</h1>
+
+   <p><strong>Title:</strong> <%= @the_movie.title %></p>
+   <p><strong>Description:</strong> <%= @the_movie.description %></p>
+   <p><strong>Year:</strong> <%= @the_movie.year %></p>
+   <p><strong>Duration:</strong> <%= @the_movie.duration %></p>
+   <p><strong>Director:</strong> <%= @the_director.name %></p>
+
+   <% if @the_movie.image && @the_movie.image != "" %>
+     <p>
+       <img src="<%= @the_movie.image %>" alt="<%= @the_movie.title %>">
+     </p>
+   <% end %>

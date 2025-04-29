@@ -1,0 +1,20 @@
+<h1>Actor Details</h1>
+
+<p><strong>Name:</strong> <%= @the_actor.name %></p>
+<p><strong>DOB:</strong>  <%= @the_actor.dob %></p>
+
+<h2>Characters</h2>
+<ul>
+<% @list_of_characters.each do |a_character| %>
+  <li><%= a_character.name %></li>
+<% end %>
+</ul>
+
+<h2>Directors of Films</h2>
+<ul>
+<% @list_of_characters.each do |a_character| %>
+  <% a_movie     = Movie.where({ :id => a_character.movie_id }).at(0) %>
+  <% director    = Director.where({ :id => a_movie.director_id }).at(0) %>
+  <li><%= director.name %></li>
+<% end %>
+</ul>
